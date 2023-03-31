@@ -1,0 +1,4 @@
+SELECT 
+  [Measures].[Sales] ON COLUMNS,
+  [Dimension1].[Attribute1].[Attribute1].MEMBERS ON ROWS
+FROM [MyCube]
