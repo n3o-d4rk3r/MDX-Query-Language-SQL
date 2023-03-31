@@ -1,0 +1,25 @@
+SELECT
+[Measures].[Forecast Net Capital PPE] ON COLUMNS,
+NON EMPTY (
+    [DIM Corporate Hierarchy].[District].[District],
+    [DIM Corporate Hierarchy].[Prospect].[Prospect],
+    [DIM Corporate Hierarchy].[Budget Entity].[Budget Entity],
+    [DIM Forecast].[Key Forecasts].[Key Forecasts],
+    [DIM Production Period].[Production Month].[Production Month],
+    FILTER(
+        [DIM Production Period].[Production Year].[Production Year].MEMBERS,
+        [DIM Production Period].[Production Year].CURRENTMEMBER.MEMBER_VALUE >= 2022
+    ),
+    FILTER(
+        [DIM Wedge Type].[Wedge Type].[Wedge Type],
+        INSTR([DIM Wedge Type].[Wedge Type].CURRENTMEMBER.NAME, "INVENTORY") = 0
+    ),
+    [DIM Capital Type].[Capital Type].[Capital Type],
+    [DIM Entity].[Pad Surface].[Pad Surface],
+    FILTER(
+        [DIM Budget Activity].[Budget Activity ID].[Budget Activity ID],
+        INSTR([DIM Budget Activity].[Budget Activity ID].CURRENTMEMBER.NAME, "_No Budget Activity") = 0
+    ),
+    [DIM Budget Activity].[Budget Activity Year].[Budget Activity Year]
+) ON ROWS
+FROM YourTableName
