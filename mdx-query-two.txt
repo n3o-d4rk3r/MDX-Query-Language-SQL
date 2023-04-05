@@ -1,4 +1,4 @@
--- as per client requirement
+-- as per requirement
 SELECT
 [Measures].[Forecast Net Capital PPE] ON COLUMNS,
 NON EMPTY (
