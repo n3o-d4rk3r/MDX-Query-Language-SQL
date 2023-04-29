@@ -4,3 +4,4 @@
 ### MDX Problem:
 1. <b>Problem 1:</b> You are trying to create an MDX query to retrieve data from a cube, but you are getting an error message that says "The MDX function CURRENTMEMBER failed because the coordinate for the 'XXX' attribute contains a set." What could be causing this error?
 <br><b>* [Solution](https://github.com/n3o-d4rk3r/MDX-Query-Language-SQL/blob/main/retrieve-data-from-a-cube.txt)</b>
+
