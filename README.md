@@ -7,23 +7,3 @@
 
 2. <b>Problem 2:</b> Here's a MySQL example that involves multiple tables and requires joining them to retrieve the desired information. Let's consider a scenario where we have two tables: "Customers" and "Orders."
 <br><b>* [Solution](https://github.com/n3o-d4rk3r/MDX-Query-Language-SQL)</b>
-
-
-### Table: Customers
-<img src="https://github.com/n3o-d4rk3r/MDX-Query-Language-SQL/blob/main/docs/customer.png"/><br/>
-### Table: Orders
-<img src="https://github.com/n3o-d4rk3r/MDX-Query-Language-SQL/blob/main/docs/order.png"/><br/>
-Now, let's say we want to retrieve the name of customers who have placed an order for a specific product, in this case, "Phone." We'll need to join the "Customers" and "Orders" tables to achieve this.
-
-### SQL Query:
-SELECT Customers.Name
-FROM Customers
-JOIN Orders ON Customers.ID = Orders.CustomerID
-WHERE Orders.Product = 'Phone';
-
-### Result: 
-+--------------+<br/>
-| Name         |<br/>
-+--------------+<br/>
-| John Smith   |<br/>
-+--------------+<br/>
