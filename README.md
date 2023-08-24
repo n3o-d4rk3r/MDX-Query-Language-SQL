@@ -9,5 +9,6 @@
 
 
 
+
 2. <b>Problem 2:</b> Here's a MySQL example that involves multiple tables and requires joining them to retrieve the desired information. Let's consider a scenario where we have two tables: "Customers" and "Orders."
 <br><b>* [Solution](https://github.com/n3o-d4rk3r/MDX-Query-Language-SQL)</b>
