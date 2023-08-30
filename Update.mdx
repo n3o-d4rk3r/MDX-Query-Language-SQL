@@ -1,23 +1,6 @@
-WITH
-  MEMBER [Measures].[Custom Column 1] AS
-    IIF(
-      [DIM AFE].[AFE Type Code].CurrentMember IS [DIM AFE].[AFE Type Code].&[CEQ] AND
-      [DIM Account].[Minor Account ID].CurrentMember IS [DIM Account].[Minor Account ID].&[843],
-      [Measures].[Forecast Net Capital PPE],
-      NULL
-    )
-  MEMBER [Measures].[Custom Column 2] AS
-    IIF(
-      [DIM AFE].[AFE Type Code].CurrentMember IS [DIM AFE].[AFE Type Code].&[CEQ] AND
-      [DIM Account].[Minor Account ID].CurrentMember IS [DIM Account].[Minor Account ID].&[843],
-      1,
-      0
-    )
 SELECT
   {
-    [Measures].[Forecast Net Capital PPE],
-    [Measures].[Custom Column 1],
-    [Measures].[Custom Column 2]
+    [Measures].[Forecast Net Capital PPE]
   } ON COLUMNS,
   NON EMPTY (
     CONC,
@@ -31,7 +14,7 @@ SELECT
     [DIM Account].[Minor Account Caption].CHILDREN,
     [DIM Account].[Major Account ID].&[2300],
     {[DIM AFE].[AFE Type Code].&[DRL],[DIM AFE].[AFE Type Code].&[CEQ]},
-    [DIM Production Period].[Production Year].&[2014]:[DIM Production Period].[Production Year].&["+FORMAT(NOW(),"yyyy")+"]],
+    [DIM Production Period].[Production Year].&[2014]:[DIM Production Period].[Production Year].&[2023],
     [DIM Corporate Hierarchy].[Op Type].&[OPERATED],
     [DIM Production Period].[Production Month].CHILDREN,
     [DIM Production Period].[Production Quarter].CHILDREN
