@@ -1,0 +1,29 @@
+SELECT
+  {
+    [Measures].[Forecast Net Capital PPE]
+  } ON COLUMNS,
+  NON EMPTY (
+    CONC,
+    [DIM Forecast].[Forecast].CHILDREN,
+    [DIM Corporate Hierarchy].[District].CHILDREN,
+    [DIM Corporate Hierarchy].[Prospect].CHILDREN,
+    [DIM Corporate Hierarchy].[Budget Entity].CHILDREN,
+    [DIM AFE].[AFE #].CHILDREN,
+    [DIM Account].[Account ID].CHILDREN,
+    [DIM Account].[Minor Account ID].CHILDREN,
+    [DIM Account].[Minor Account Caption].CHILDREN,
+    [DIM Account].[Major Account ID].&[2300],
+    {[DIM AFE].[AFE Type Code].&[DRL],[DIM AFE].[AFE Type Code].&[CEQ]},
+    [DIM Production Period].[Production Year].&[2014]:[DIM Production Period].[Production Year].&[2023],
+    [DIM Corporate Hierarchy].[Op Type].&[OPERATED],
+    [DIM Production Period].[Production Month].CHILDREN,
+    [DIM Production Period].[Production Quarter].CHILDREN
+  )
+  HAVING [Measures].[Forecast Net Capital PPE] <> 0
+  ON ROWS
+FROM [Forecast]
+WHERE
+  CROSSJOIN(
+    {[DIM Wedge Type].[Wedge Type].&[ACTUAL]},
+    {[DIM Forecast].[Key Forecast].&[Working Copy]}
+  )
