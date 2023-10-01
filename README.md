@@ -5,6 +5,5 @@
 1. <b>Problem 1:</b> You are trying to create an MDX query to retrieve data from a cube, but you are getting an error message that says "The MDX function CURRENTMEMBER failed because the coordinate for the 'XXX' attribute contains a set." What could be causing this error?
 <br><b>* [Solution](https://github.com/n3o-d4rk3r/MDX-Query-Language-SQL/blob/main/retrieve-data-from-a-cube.txt)</b>
 
-
 2. <b>Problem 2:</b> Here's a MySQL example that involves multiple tables and requires joining them to retrieve the desired information. Let's consider a scenario where we have two tables: "Customers" and "Orders."
 <br><b>* [Solution](https://github.com/n3o-d4rk3r/MDX-Query-Language-SQL)</b>
